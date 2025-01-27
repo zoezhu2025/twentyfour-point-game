@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    text-align: center; /* 确保内容在页面中居中显示 */
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px; /* 添加圆角效果 */
+    cursor: pointer;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 20px; /* 增大结果显示的字体，使其更易读 */
+    color: #333;
+}
