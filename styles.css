@@ -1,48 +1,103 @@
+/* 页面居中 */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Viewport Height */
+    height: 100vh;
+    margin: 0;
+    background-color: #f7f7f7;
 }
 
 .container {
-    width: 80%;
-    max-width: 500px;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Offset Y position upwards by 20% */
-    transform: translateY(-20%);
     text-align: center;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 350px;
 }
 
-input[type="number"], button {
-    margin: 10px;
-    padding: 10px;
-    width: 90%;
-    border-radius: 4px;
+/* 标题 */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
+/* 描述文字 */
+.description {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+/* 使用flexbox确保每个输入框和它的标签在同一行显示 */
+.input-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+/* 标签的样式 */
+.input-label {
+    font-size: 14px;
+    margin-right: 10px;  /* 标签和输入框之间的间距 */
+    width: 30%;  /* 标签占30%的宽度 */
+    text-align: right;
+}
+
+/* 输入框的样式 */
+input {
+    width: 60%; /* 输入框占据剩余的宽度 */
+    padding: 8px;
+    margin: 0; /* 移除多余的外边距 */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+/* 按钮样式 */
 button {
+    background-color: #4CAF50;
     color: white;
-    background-color: #0078D7;
+    padding: 10px 20px;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #45a049;
 }
 
+/* 结果列表 */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+li {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+/* 成功和失败的样式 */
 .success {
-    color: green;  /* 可以凑出24点的文字设为绿色 */
+    color: green;
 }
 
 .failure {
-    color: red;    /* 不能凑出24点的文字设为红色 */
+    color: red;
+}
+
+/* 版本号和开发者信息 */
+footer {
+    font-size: 12px;
+    color: #777;
+    margin-top: 20px;
+    text-align: center;
 }

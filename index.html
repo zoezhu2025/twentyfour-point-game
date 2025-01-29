@@ -8,12 +8,33 @@
 </head>
 <body>
     <div class="container">
-        <input type="number" id="num1" min="1" max="10" placeholder="输入数字 (1-10)">
-        <input type="number" id="num2" min="1" max="10" placeholder="输入数字 (1-10)">
-        <input type="number" id="num3" min="1" max="10" placeholder="输入数字 (1-10)">
-        <input type="number" id="num4" min="1" max="10" placeholder="输入数字 (1-10)">
+        <h1>24点验证器</h1>
+        <p class="description">
+            坚持练习24点有助于提高数感，培养灵活的思维和快速的计算能力。有时，我们会碰到绞尽脑汁都想不出来，希望这个小工具能够助你一臂之力，让你轻松解决难题！
+        </p>
+        <div class="input-group">
+            <label class="input-label" for="num1">第1个数字：</label>
+            <input type="number" id="num1" min="1" max="10" placeholder="输入数字 (1-10)">
+        </div>
+        <div class="input-group">
+            <label class="input-label" for="num2">第2个数字：</label>
+            <input type="number" id="num2" min="1" max="10" placeholder="输入数字 (1-10)">
+        </div>
+        <div class="input-group">
+            <label class="input-label" for="num3">第3个数字：</label>
+            <input type="number" id="num3" min="1" max="10" placeholder="输入数字 (1-10)">
+        </div>
+        <div class="input-group">
+            <label class="input-label" for="num4">第4个数字：</label>
+            <input type="number" id="num4" min="1" max="10" placeholder="输入数字 (1-10)">
+        </div>
         <button onclick="validateNumbers()">开始验证</button>
-        <ul id="resultsList"></ul> <!-- 结果列表 -->
+        <ul id="resultsList"></ul>
+
+        <!-- 版本信息 -->
+        <footer>
+            <p>版本号：0.5；开发者：朱忆辛</p>
+        </footer>
     </div>
     <script src="script.js"></script>
 </body>
