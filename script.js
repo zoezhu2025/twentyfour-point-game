@@ -1,30 +1,38 @@
-function checkSolution() {
-    let numbers = [];
-    for (let i = 0; i < 4; i++) {
-        let number = prompt(`请输入第${i + 1}个数字 (1-10之间的自然数):`);
-        number = parseInt(number, 10); // 将输入转换为整数
-        // 检查数字是否在1到10之间
-        while (isNaN(number) || number < 1 || number > 10) {
-            alert("错误：请输入1到10之间的自然数!");
-            number = parseInt(prompt(`请输入第${i + 1}个数字 (1-10之间的自然数):`), 10);
-        }
-        numbers.push(number);
+let groupCounter = 1;  // 全局变量来跟踪组数
+
+function validateNumbers() {
+    const num1 = parseInt(document.getElementById('num1').value);
+    const num2 = parseInt(document.getElementById('num2').value);
+    const num3 = parseInt(document.getElementById('num3').value);
+    const num4 = parseInt(document.getElementById('num4').value);
+    
+    // 清空输入框
+    document.getElementById('num1').value = '';
+    document.getElementById('num2').value = '';
+    document.getElementById('num3').value = '';
+    document.getElementById('num4').value = '';
+
+    if ([num1, num2, num3, num4].some(num => isNaN(num) || num < 1 || num > 10)) {
+        alert('所有输入必须是1到10之间的数字。');
+        return;
     }
 
-    // 调用功能函数并通过对话框显示结果
+    const numbers = [num1, num2, num3, num4];
+    const resultsList = document.getElementById('resultsList');
+    let resultItem = document.createElement('li');
+
+    let prefix = `第${groupCounter++}组：`;
+
     if (canMake24(numbers)) {
-        alert(`这四个数${numbers.join(', ')}可以凑24点`);
+        resultItem.innerHTML = `${prefix}${numbers.join(', ')} 可以凑24点`;
+        resultItem.className = 'success';
     } else {
-        alert(`这四个数${numbers.join(', ')}不能凑24点`);
+        resultItem.innerHTML = `${prefix}${numbers.join(', ')} 不能凑24点`;
+        resultItem.className = 'failure';
     }
-
-    // 弹出对话框询问用户是否需要再次验证
-    if (confirm("验证完成，是否需要再次验证？")) {
-        checkSolution(); // 递归调用自身来重启验证过程
-    }
+    resultsList.appendChild(resultItem);
 }
 
-// 功能函数，用于尝试所有运算组合
 function canMake24(nums) {
     if (nums.length === 1) {
         return Math.abs(nums[0] - 24) < 0.0001;
@@ -33,18 +41,17 @@ function canMake24(nums) {
     for (let i = 0; i < nums.length; i++) {
         for (let j = 0; j < nums.length; j++) {
             if (i !== j) {
-                const nextNums = nums.filter((_, index) => index !== i && index !== j);
-                const results = [
-                    nums[i] + nums[j],
-                    nums[i] - nums[j],
-                    nums[j] - nums[i],
-                    nums[i] * nums[j]
-                ];
+                let rest = nums.filter((_, index) => index !== i && index !== j);
+                let results = [];
+                
+                // 尝试所有四种运算符
+                results.push(nums[i] + nums[j]);
+                results.push(nums[i] - nums[j]);
+                results.push(nums[i] * nums[j]);
                 if (nums[j] !== 0) results.push(nums[i] / nums[j]);
-                if (nums[i] !== 0) results.push(nums[j] / nums[i]);
 
                 for (const result of results) {
-                    if (canMake24([...nextNums, result])) {
+                    if (canMake24([result, ...rest])) {
                         return true;
                     }
                 }

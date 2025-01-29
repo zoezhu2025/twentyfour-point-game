@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>验证二十四点</title>
+    <title>验证24点游戏</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>验证二十四点游戏</h1>
-    <button onclick="checkSolution()">开始验证</button>
-    <div id="result"></div>
+    <div class="container">
+        <input type="number" id="num1" min="1" max="10" placeholder="输入数字 (1-10)">
+        <input type="number" id="num2" min="1" max="10" placeholder="输入数字 (1-10)">
+        <input type="number" id="num3" min="1" max="10" placeholder="输入数字 (1-10)">
+        <input type="number" id="num4" min="1" max="10" placeholder="输入数字 (1-10)">
+        <button onclick="validateNumbers()">开始验证</button>
+        <ul id="resultsList"></ul> <!-- 结果列表 -->
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

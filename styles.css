@@ -1,23 +1,48 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
-    padding: 20px;
     background-color: #f4f4f4;
-    text-align: center; /* 确保内容在页面中居中显示 */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Viewport Height */
+}
+
+.container {
+    width: 80%;
+    max-width: 500px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Offset Y position upwards by 20% */
+    transform: translateY(-20%);
+    text-align: center;
+}
+
+input[type="number"], button {
+    margin: 10px;
+    padding: 10px;
+    width: 90%;
+    border-radius: 4px;
 }
 
 button {
-    padding: 10px 20px;
-    font-size: 16px;
     color: white;
-    background-color: #007bff;
+    background-color: #0078D7;
     border: none;
-    border-radius: 5px; /* 添加圆角效果 */
     cursor: pointer;
 }
 
-#result {
-    margin-top: 20px;
-    font-size: 20px; /* 增大结果显示的字体，使其更易读 */
-    color: #333;
+button:hover {
+    background-color: #0056b3;
+}
+
+.success {
+    color: green;  /* 可以凑出24点的文字设为绿色 */
+}
+
+.failure {
+    color: red;    /* 不能凑出24点的文字设为红色 */
 }
